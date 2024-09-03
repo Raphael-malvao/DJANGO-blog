@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 {% load static %}
 <html lang="pt-BR">
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -13,24 +12,36 @@
 
     <title>Meu Blog</title>
 </head>
+<body>
 
+    <div class="page-header">
     <header>
         <h1>Bem-vindo ao Meu Blog</h1>
     </header>
     <nav>
-        <a href="#">Início</a>
-        <a href="#">Sobre</a>
-        <a href="#">Contato</a>
+        <a href="">Home page</a>
+        <a href="">Sobre</a>
+        <a href="">Contato</a>
     </nav>
-    {% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
     </div>
-{% endfor %}
-    <footer>
-        <p>&copy; 2024 Meu Blog. Todos os direitos reservados.</p>
-    </footer>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="date">
+                            <p>published: {{ post.published_date }}</p>
+                        </div>
+                        <h2><a href="">{{ post.title }}</a></h2>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div></body>
+
+<footer>
+    <p>&copy; 2024 Meu Blog. Todos os direitos reservados.</p>
+</footer>
 
 </html>
